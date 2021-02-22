@@ -1,6 +1,6 @@
 ---
 mysetting:
-  wares: &1
+  wares: &2
     label: ''
     name: 名字
   reports: &3
@@ -1262,13 +1262,13 @@ defaults:
     ed_cf: 二档处罚(80<=回收率<90)
     sd_cf: 三档处罚(回收率<80)
     zg_cf: 最高处罚
-  notices: &138
+  notices: &1
     label: 通知公告
     title: 标题
     content: 内容
 development:
-  notices: *138
-  wares: *1
+  notices: *1
+  wares: *2
   reports: *3
   models: *4
   properties: *5
@@ -1404,6 +1404,30 @@ development:
   agendas: *135
   statistics: *136
   meter_standards: *137
+  swg_smps:
+    label: 水质检测统计
+    smp_date: 取样日期
+    act_ipt: 实际进水量(m3/d)
+    ipt_tmp: 进水水温(℃)
+    ipt_ph: 进水PH
+    cod_ipt: COD(mg/l)进水
+    cod_opt: COD(mg/l)出水
+    cod_rmr: COD(mg/l)去除率
+    amn_ipt: 氨氮(mg/l)进水
+    amn_opt: 氨氮(mg/l)出水
+    amn_rmr: 氨氮(mg/l)去除率
+    tmn_ipt: 总氮(mg/l)进水
+    tmn_opt: 总氮(mg/l)出水
+    tmn_rmr: 总氮(mg/l)去除率
+    psp_ipt: 总磷(mg/l)进水
+    psp_opt: 总磷(mg/l)出水
+    psp_rmr: 总磷(mg/l)去除率
+    rts: 是否达标
+    level_ab: 一级A/一级B
+    desc: 备注
+  sewages:
+    label: 污水处理站点
+    name: 站点名称
 test:
   admins: *106
   users: *107
@@ -1414,7 +1438,7 @@ test:
   wares: *128
   trees: *112
   leafs: *113
-  notices: *138
+  notices: *1
   orders: *114
   accounts: *115
   consumes: *116
@@ -1441,7 +1465,7 @@ test:
   meter_standards: *137
 production:
   wares: *128
-  notices: *138
+  notices: *1
   reports: *3
   models: *4
   properties: *5

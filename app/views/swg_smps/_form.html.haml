@@ -1,0 +1,106 @@
+.container-fluid
+  .row
+    .col-sm-8
+      = form_for [@sewage, @swg_smp], :builder => WebsiteFormBuilder, :html => {:'data-parsley-validate' => true} do |f|
+        - if @swg_smp.errors.any?
+          #error_explanation.alert.alert-danger.alert-dismissible.fade.show
+            %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+              %span{"aria-hidden" => "true"} x 
+            %h2= "#{pluralize(@swg_smp.errors.count, "error")} prohibited this buyer from being saved:"
+            %ul
+              - @swg_smp.errors.full_messages.each do |msg|
+                %li= msg
+      
+        .form-row
+          .col-6
+            .form-group.row
+              = f.label Setting.swg_smps.smp_date, :class => "col-8 col-form-label text-right"
+              .col-4
+                = f.date_field :smp_date, :class => "form-control rounded-0" , :required => true
+          
+          .col-6
+            .form-group.row
+              = f.label Setting.swg_smps.act_ipt, :class => "col-8 col-form-label text-right"
+              .col-4
+                = f.number_field :act_ipt, :class => "form-control rounded-0", :step => "0.0001" 
+          
+        .form-row
+          .col-6
+            .form-group.row
+              = f.label Setting.swg_smps.ipt_tmp, :class => "col-8 col-form-label text-right"
+              .col-4
+                = f.number_field :ipt_tmp, :class => "form-control rounded-0" , :required => true, :step => "0.0001"
+              
+          .col-6
+            .form-group.row
+              = f.label Setting.swg_smps.ipt_ph, :class => "col-8 col-form-label text-right"
+              .col-4
+                = f.number_field :ipt_ph, :class => "form-control rounded-0" , :required => true, :step => "0.0001"
+              
+        .form-row
+          .col-6
+            .form-group.row
+              = f.label Setting.swg_smps.cod_ipt, :class => "col-8 col-form-label text-right"
+              .col-4
+                = f.number_field :cod_ipt, :class => "form-control rounded-0" , :required => true, :step => "0.0001"
+              
+          .col-6
+            .form-group.row
+              = f.label Setting.swg_smps.cod_opt, :class => "col-8 col-form-label text-right"
+              .col-4
+                = f.number_field :cod_opt, :class => "form-control rounded-0" , :required => true, :step => "0.0001"
+              
+        .form-row
+          .col-6
+            .form-group.row
+              = f.label Setting.swg_smps.amn_ipt, :class => "col-8 col-form-label text-right"
+              .col-4
+                = f.number_field :amn_ipt, :class => "form-control rounded-0" , :required => true, :step => "0.0001"
+              
+          .col-6
+            .form-group.row
+              = f.label Setting.swg_smps.amn_opt, :class => "col-8 col-form-label text-right"
+              .col-4
+                = f.number_field :amn_opt, :class => "form-control rounded-0" , :required => true, :step => "0.0001"
+              
+              
+        .form-row
+          .col-6
+            .form-group.row
+              = f.label Setting.swg_smps.tmn_ipt, :class => "col-8 col-form-label text-right"
+              .col-4
+                = f.number_field :tmn_ipt, :class => "form-control rounded-0" , :required => true, :step => "0.0001"
+              
+          .col-6
+            .form-group.row
+              = f.label Setting.swg_smps.tmn_opt, :class => "col-8 col-form-label text-right"
+              .col-4
+                = f.number_field :tmn_opt, :class => "form-control rounded-0" , :required => true, :step => "0.0001"
+              
+        .form-row
+          .col-6
+            .form-group.row
+              = f.label Setting.swg_smps.psp_ipt, :class => "col-8 col-form-label text-right"
+              .col-4
+                = f.number_field :psp_ipt, :class => "form-control rounded-0" , :required => true, :step => "0.0001"
+              
+          .col-6
+            .form-group.row
+              = f.label Setting.swg_smps.psp_opt, :class => "col-8 col-form-label text-right"
+              .col-4
+                = f.number_field :psp_opt, :class => "form-control rounded-0" , :required => true, :step => "0.0001"
+              
+        .form-row
+          .col-12
+            .form-group.row
+              = f.label Setting.swg_smps.desc, :class => "col-4 col-form-label text-right"
+              .col-8
+                = f.text_area :desc, :class => "form-control rounded-0", :rows => "10" 
+      
+      
+        .form-group.row
+          .col-3.offset-4
+            = f.submit '保存', :class => "button button-action"
+        -#
+          .col-3.offset-1
+            = link_to '返回', swg_smps_path, :class => "button button-caution"

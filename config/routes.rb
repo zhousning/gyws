@@ -100,6 +100,12 @@ Rails.application.routes.draw do
   end
   resources :selectors
 
+  resources :sewages do
+    get :download_append, :on => :member
+    resources :swg_smps do
+      get :download_append, :on => :member
+    end
+  end
   resources :flower
 
   root :to => 'controls#index'

@@ -1,0 +1,93 @@
+- provide(:title, t('.title'))
+
+.container-fluid
+  .row
+    = render "layouts/control_sidebar"
+    %main.col-md-9.ml-sm-auto.col-lg-10.p-3{:role => "main"}
+      - content_for :card_header do
+        %h5
+          = fa_icon "newspaper-o", text: t(controller_name + "." + action_name + '.title')
+          = link_to sewage_swg_smps_path, :class => "button pull-right button-primary" do
+            = fa_icon " chevron-left", text: Setting.systems.btn_back, right: false 
+      - content_for :card_body do
+        .container-fluid
+          .row
+            .col-md-8.offset-2
+              .card-body
+                .container-fluid
+                  .row
+                  
+                    .col-md-6.mb-3.mr-3
+                      = Setting.swg_smps.smp_date
+                      = @swg_smp.smp_date
+                  
+                    .col-md-6.mb-3.mr-3
+                      = Setting.swg_smps.act_ipt
+                      = @swg_smp.act_ipt
+                  
+                    .col-md-6.mb-3.mr-3
+                      = Setting.swg_smps.ipt_tmp
+                      = @swg_smp.ipt_tmp
+                  
+                    .col-md-6.mb-3.mr-3
+                      = Setting.swg_smps.ipt_ph
+                      = @swg_smp.ipt_ph
+                  
+                    .col-md-6.mb-3.mr-3
+                      = Setting.swg_smps.cod_ipt
+                      = @swg_smp.cod_ipt
+                  
+                    .col-md-6.mb-3.mr-3
+                      = Setting.swg_smps.cod_opt
+                      = @swg_smp.cod_opt
+                  
+                    .col-md-6.mb-3.mr-3
+                      = Setting.swg_smps.cod_rmr
+                      = @swg_smp.cod_rmr
+                  
+                    .col-md-6.mb-3.mr-3
+                      = Setting.swg_smps.amn_ipt
+                      = @swg_smp.amn_ipt
+                  
+                    .col-md-6.mb-3.mr-3
+                      = Setting.swg_smps.amn_opt
+                      = @swg_smp.amn_opt
+                  
+                    .col-md-6.mb-3.mr-3
+                      = Setting.swg_smps.amn_rmr
+                      = @swg_smp.amn_rmr
+                  
+                    .col-md-6.mb-3.mr-3
+                      = Setting.swg_smps.tmn_ipt
+                      = @swg_smp.tmn_ipt
+                  
+                    .col-md-6.mb-3.mr-3
+                      = Setting.swg_smps.tmn_opt
+                      = @swg_smp.tmn_opt
+                  
+                    .col-md-6.mb-3.mr-3
+                      = Setting.swg_smps.tmn_rmr
+                      = @swg_smp.tmn_rmr
+                  
+                    .col-md-6.mb-3.mr-3
+                      = Setting.swg_smps.rts
+                      = @swg_smp.rts
+                  
+                    .col-md-6.mb-3.mr-3
+                      = Setting.swg_smps.level_ab
+                      = @swg_smp.level_ab
+                  
+                    .col-md-6.mb-3.mr-3
+                      = Setting.swg_smps.desc
+                      = @swg_smp.desc
+                  
+                  .row
+                  
+                  .row
+                  
+                  .row
+                  
+                  
+                  .row
+                  
+      = render "layouts/bootstrap/card"
